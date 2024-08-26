@@ -1,11 +1,7 @@
 import "./App.css";
 
 function App() {
-  return (
-    <>
-      Oi
-    </>
-  );
+  return <>Oi</>;
 }
 
 export default App;
