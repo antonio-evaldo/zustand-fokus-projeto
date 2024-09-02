@@ -1,0 +1,152 @@
+.cronometro {
+  display: flex;
+  justify-content: center;
+}
+
+.cronometro__card {
+  border-radius: 3.2rem;
+  border: 0.2rem solid var(--azul-royal);
+  background: var(--fundo-card-timer);
+  padding: 2.4rem;
+  margin: 8rem 0;
+  width: 59rem;
+  max-width: 90%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cronometro__card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.cronometro__card-button {
+  font-family: Montserrat;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  background: none;
+  padding: 0.8rem;
+  color: var(--color-secondary);
+  border: none;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.cronometro__card-button--active {
+  border-radius: 0.8rem;
+  background: var(--azul-royal);
+  font-weight: 600;
+}
+
+.cronometro__card-timer {
+  color: var(--color-secondary);
+  text-align: center;
+  font-family: Unbounded;
+  font-size: 12rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 3.2rem;
+  text-align: center;
+}
+
+.cronometro__card-primary-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cronometro__card-primary-button {
+  padding: 0.8rem;
+  width: 12rem;
+  color: var(--color-secondary);
+  border: none;
+  cursor: pointer;
+  outline: inherit;
+  border-radius: 3.2rem;
+  background: var(--linear-botes);
+  margin-top: 3.2rem;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.toggle {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.toggle:hover .toggle__switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+}
+
+.toggle__checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle__checkbox:checked + .toggle__switch {
+  background: var(--lils);
+}
+
+.toggle__checkbox:checked + .toggle__switch:before {
+  left: 3rem;
+}
+
+.toggle__switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 1.6rem;
+  width: 5.8rem;
+  height: 3.2rem;
+  position: relative;
+  vertical-align: middle;
+  transition: background-color 0.25s;
+}
+
+.toggle__switch:before,
+.toggle__switch:after {
+  content: "";
+}
+
+.toggle__switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  transition: left 0.25s;
+}
+
+.toggle__span {
+  color: var(--color-secondary);
+  font-family: Montserrat;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .cronometro__card-timer {
+    font-size: 6rem;
+  }
+}

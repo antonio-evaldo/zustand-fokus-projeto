@@ -2,7 +2,6 @@ import styles from "./App.module.css";
 import { useState } from "react";
 import { ESTADO_CRONOMETRO } from "./consts";
 
-import play_arrowImg from "./assets/imgs/play_arrow.png";
 import moreImg from "./assets/imgs/more.svg";
 import checkImg from "./assets/imgs/check.svg";
 import trashImg from "./assets/imgs/trash.svg";
@@ -13,84 +12,17 @@ import add_circleImg from "./assets/imgs/add_circle.png";
 
 import Cabecalho from "./components/Cabecalho";
 import Rodape from "./components/Rodape";
+import Cronometro from "./components/Cronometro";
 
 function App() {
-  const [estadoCronometro, setEstadoCronometro] = useState(
-    ESTADO_CRONOMETRO.FOCO
-  );
+  const [estadoCronometro] = useState(ESTADO_CRONOMETRO.FOCO);
 
   return (
     <div className={styles[`app--${estadoCronometro}`]}>
       <Cabecalho />
 
       <main>
-        <section className="app__section-card-container">
-          <div className="app__card">
-            <ul className="app__card-list">
-              <li className="app__card-list-item">
-                <button
-                  data-contexto="foco"
-                  className="app__card-button app__card-button--foco active"
-                >
-                  Foco
-                </button>
-              </li>
-
-              <li className="app__card-list-item">
-                <button
-                  data-contexto="short"
-                  className="app__card-button app__card-button--curto"
-                >
-                  Descanso curto
-                </button>
-              </li>
-
-              <li className="app__card-list-item">
-                <button
-                  data-contexto="long"
-                  className="app__card-button app__card-button--longo"
-                >
-                  Descanso longo
-                </button>
-              </li>
-            </ul>
-
-            <div id="timer" className="app__card-timer"></div>
-
-            <ul className="app__card-list">
-              <li className="app__card-list-item">
-                <label className="toggle">
-                  <input
-                    className="toggle-checkbox"
-                    type="checkbox"
-                    id="alternar-musica"
-                  />
-                  <div className="toggle-switch"></div>
-                </label>
-              </li>
-
-              <li className="app__card-list-item">
-                <label
-                  className="app__card-list-label"
-                  htmlFor="alternar-musica"
-                >
-                  Música
-                </label>
-              </li>
-            </ul>
-
-            <div className="app__card-primary-button-wrapper">
-              <button id="start-pause" className="app__card-primary-button">
-                <img
-                  className="app__card-primary-butto-icon"
-                  src={play_arrowImg}
-                  alt=""
-                />
-                <span>Começar</span>
-              </button>
-            </div>
-          </div>
-        </section>
+        <Cronometro />
 
         <section className="app__section-task-container">
           <div className="app__section-task-content">
