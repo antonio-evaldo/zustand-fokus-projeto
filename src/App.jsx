@@ -1,4 +1,4 @@
-import "./App.css";
+import styles from "./App.module.css";
 import { useState } from "react";
 import { ESTADO_CRONOMETRO } from "./consts";
 
@@ -19,7 +19,7 @@ function App() {
   );
 
   return (
-    <main className={`app app--${estadoCronometro}`}>
+    <main className={styles[`app--${estadoCronometro}`]}>
       <header className="app__header">
         <figure className="app__logo-figure">
           <img
