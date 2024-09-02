@@ -37,35 +37,6 @@ h6 {
   font-family: "Unbounded", cursive;
 }
 
-.app__logo-figure {
-  display: flex;
-  justify-content: center;
-  padding: 4rem 0;
-}
-
-.app__section-banner-container {
-  width: 99rem;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 4rem;
-  flex-wrap: wrap;
-}
-
-.app__title {
-  line-height: 150%;
-  font-size: 5.2rem;
-  font-style: normal;
-  color: var(--color-secondary);
-  font-weight: 200;
-  max-width: 46rem;
-}
-
-.app__title-strong {
-  font-weight: 600;
-}
-
 .app__section-card-container {
   display: flex;
   justify-content: center;
@@ -152,25 +123,6 @@ h6 {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-}
-
-.app__footer {
-  display: flex;
-  width: 100%;
-  padding: 2.8rem 6rem;
-  justify-content: center;
-  align-items: center;
-  background: #010b15;
-}
-
-.app__footer-text {
-  color: rgba(182, 182, 182, 0.8);
-  text-align: center;
-  font-family: Montserrat;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
 }
 
 /* toggle */
@@ -269,23 +221,7 @@ h6 {
 
 /* fim - dropdown */
 
-/* Para Tablets */
-@media (max-width: 1024px) and (min-width: 768px) {
-  .app__section-banner-container {
-    width: 48rem;
-  }
-}
-
-/* Para Celulares */
 @media (max-width: 767px) {
-  .app__section-banner-container {
-    width: 32rem;
-  }
-
-  .app__title {
-    font-size: 2.6rem;
-  }
-
   .app__card-timer {
     font-size: 6rem;
   }
