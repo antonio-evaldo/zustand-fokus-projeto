@@ -1,14 +1,9 @@
-.cronometro {
-  display: flex;
-  justify-content: center;
-}
-
-.cronometro__card {
+.cronometer {
   border-radius: 3.2rem;
   border: 0.2rem solid var(--azul-royal);
   background: var(--fundo-card-timer);
   padding: 2.4rem;
-  margin: 8rem 0;
+  margin: 8rem auto;
   width: 59rem;
   max-width: 90%;
 
@@ -18,7 +13,7 @@
   align-items: center;
 }
 
-.cronometro__card-list {
+.cronometer-modes {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -28,7 +23,7 @@
   gap: 1.6rem;
 }
 
-.cronometro__card-button {
+.cronometer-modes__button {
   font-family: Montserrat;
   font-size: 1.8rem;
   font-style: normal;
@@ -42,13 +37,13 @@
   outline: inherit;
 }
 
-.cronometro__card-button--active {
+.cronometer-modes__button--active {
   border-radius: 0.8rem;
   background: var(--azul-royal);
   font-weight: 600;
 }
 
-.cronometro__card-timer {
+.cronometer-timer {
   color: var(--color-secondary);
   text-align: center;
   font-family: Unbounded;
@@ -60,13 +55,13 @@
   text-align: center;
 }
 
-.cronometro__card-primary-button-wrapper {
+.cronometer__primary-button-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.cronometro__card-primary-button {
+.cronometer__primary-button {
   padding: 0.8rem;
   width: 12rem;
   color: var(--color-secondary);
@@ -146,7 +141,7 @@
 }
 
 @media (max-width: 767px) {
-  .cronometro__card-timer {
+  .cronometer__timer {
     font-size: 6rem;
   }
 }
