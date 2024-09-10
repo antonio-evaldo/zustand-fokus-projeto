@@ -9,29 +9,25 @@ import add_circleImg from "/src/assets/imgs/add_circle.png";
 
 export default function ListaDeTarefas() {
   return (
-    <section className={styles["app__section-task-container"]}>
-      <div className={styles["app__section-task-content"]}>
-        <header className={styles["app__section-active-task"]}>
-          <p className={styles["app__section-active-task-label"]}>
-            #Em andamento:
-          </p>
-          <p className={styles["app__section-active-task-description"]}></p>
-        </header>
+    <section className={styles["tasks"]}>
+      <div className={styles["tasks__task-content"]}>
+        <section className={styles["tasks__active-task"]}>
+          <p className={styles["tasks__active-task-label"]}>#Em andamento:</p>
+          <p className={styles["tasks__active-task-description"]}></p>
+        </section>
 
-        <div className={styles["app__section-task-header"]}>
-          <h2 className={styles["app__section-tasks-heading"]}>
-            Lista de tarefas:
-          </h2>
+        <section className={styles["task-header"]}>
+          <h2 className={styles["task-header__heading"]}>Lista de tarefas:</h2>
 
-          <div className={styles["dropdown-container"]}>
-            <button className={styles["app_button-more"]}>
+          <div className={styles["dropdown"]}>
+            <button className={styles["dropdown__button-more"]}>
               <img src={moreImg} alt="Opções da lista de tarefas" />
             </button>
 
-            <ul className={styles["app__section-task-header__ul"]}>
-              <li className={styles["app__section-task-header__li"]}>
+            <ul className={styles["dropdown__ul"]}>
+              <li className={styles["dropdown__li"]}>
                 <button
-                  className={styles["app__section-task-header__li__button"]}
+                  className={styles["dropdown__button"]}
                   id="btn-remover-concluidas"
                 >
                   <img src={checkImg} alt="" />
@@ -39,9 +35,9 @@ export default function ListaDeTarefas() {
                 </button>
               </li>
 
-              <li className={styles["app__section-task-header__li"]}>
+              <li className={styles["dropdown__li"]}>
                 <button
-                  className={styles["app__section-task-header__li__button"]}
+                  className={styles["dropdown__button"]}
                   id="btn-remover-todas"
                 >
                   <img src={trashImg} alt="" />
@@ -50,53 +46,55 @@ export default function ListaDeTarefas() {
               </li>
             </ul>
           </div>
-        </div>
+        </section>
 
-        <ul className={styles["app__section-task-list"]}></ul>
+        <ul className={styles["tasks__task-list"]}></ul>
 
         <form
           className={`
-            ${styles["app__form-add-task"]}
-            ${styles["hidden"]}
+            ${styles["form-add-task"]}
+            ${styles["form-add-task--hidden"]}
           `}
           aria-hidden="true"
         >
-          <div className={styles["app__form-field"]}>
-            <label className={styles["app__form-label"]}>
+          <div className={styles["form-add-task__field"]}>
+            <label className={styles["form-add-task__label"]}>
               Adicionando tarefa
             </label>
             <textarea
               required
               rows="4"
-              className={styles["app__form-textarea"]}
+              className={styles["form-add-task__textarea"]}
               placeholder="No que você está trabalhando?"
             ></textarea>
           </div>
 
-          <footer className={styles["app__form-footer"]}>
+          <footer className={styles["form-add-task__footer"]}>
             <button
               type="button"
               className={`
-                ${styles["app__form-footer__button"]}
-                ${styles["app__form-footer__button--delete"]}
+                ${styles["form-add-task__footer-button"]}
+                ${styles["form-add-task__footer-button--delete"]}
               `}
             >
               <img src={deleteImg} alt="" /> Deletar
             </button>
+
             <div className={styles["splitter"]}></div>
+
             <button
               type="button"
               className={`
-                ${styles["app__form-footer__button"]}
-                ${styles["app__form-footer__button--cancel"]}
+                ${styles["form-add-task__footer-button"]}
+                ${styles["form-add-task__footer-button--cancel"]}
               `}
             >
               <img src={closeImg} alt="" /> Cancelar
             </button>
             <button
               className={`
-                ${styles["app__form-footer__button"]}
-                ${styles["app__form-footer__button--confirm"]}
+                ${styles["form-add-task__footer-button"]}
+                ${styles["form-add-task__footer-button--confirm"]}
               `}
             >
               <img src={saveImg} alt="" /> Salvar
@@ -104,7 +102,7 @@ export default function ListaDeTarefas() {
           </footer>
         </form>
 
-        <button className={styles["app__button--add-task"]}>
+        <button className={styles["tasks__button--add-task"]}>
           <img src={add_circleImg} alt="" /> Adicionar nova tarefa
         </button>
       </div>
