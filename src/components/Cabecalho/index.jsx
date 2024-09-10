@@ -13,9 +13,7 @@ export default function Cabecalho() {
         <h1 className={styles["header__title"]}>
           Otimize sua produtividade,
           <br />
-          <strong className={styles["header__title-strong"]}>
-            mergulhe no que importa.
-          </strong>
+          <strong className={styles["header__title-strong"]}>mergulhe no que importa.</strong>
         </h1>
         <figure className={styles["header__image-figure"]}>
           <img className={styles["header__image"]} src={focoImg} alt="" />

@@ -26,20 +26,14 @@ export default function ListaDeTarefas() {
 
             <ul className={styles["dropdown__ul"]}>
               <li className={styles["dropdown__li"]}>
-                <button
-                  className={styles["dropdown__button"]}
-                  id="btn-remover-concluidas"
-                >
+                <button className={styles["dropdown__button"]} id="btn-remover-concluidas">
                   <img src={checkImg} alt="" />
                   Limpar tarefas concluídas
                 </button>
               </li>
 
               <li className={styles["dropdown__li"]}>
-                <button
-                  className={styles["dropdown__button"]}
-                  id="btn-remover-todas"
-                >
+                <button className={styles["dropdown__button"]} id="btn-remover-todas">
                   <img src={trashImg} alt="" />
                   Limpar todas as tarefas
                 </button>
@@ -58,9 +52,7 @@ export default function ListaDeTarefas() {
           aria-hidden="true"
         >
           <div className={styles["form-add-task__field"]}>
-            <label className={styles["form-add-task__label"]}>
-              Adicionando tarefa
-            </label>
+            <label className={styles["form-add-task__label"]}>Adicionando tarefa</label>
             <textarea
               required
               rows="4"

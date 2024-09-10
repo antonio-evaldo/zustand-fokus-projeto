@@ -46,11 +46,7 @@ export default function Cronometro() {
       <div id="timer" className={styles["cronometer-timer"]}></div>
 
       <label className={styles["toggle"]}>
-        <input
-          className={styles["toggle__checkbox"]}
-          type="checkbox"
-          id="alternar-musica"
-        />
+        <input className={styles["toggle__checkbox"]} type="checkbox" id="alternar-musica" />
 
         <div className={styles["toggle__switch"]}></div>
 
@@ -60,15 +56,8 @@ export default function Cronometro() {
       </label>
 
       <div className={styles["cronometer__primary-button-wrapper"]}>
-        <button
-          id="start-pause"
-          className={styles["cronometer__primary-button"]}
-        >
-          <img
-            className={styles["cronometer__primary-button-icon"]}
-            src={play_arrowImg}
-            alt=""
-          />
+        <button id="start-pause" className={styles["cronometer__primary-button"]}>
+          <img className={styles["cronometer__primary-button-icon"]} src={play_arrowImg} alt="" />
           <span>Começar</span>
         </button>
       </div>
