@@ -6,38 +6,27 @@ import BotaoModo from "./BotaoModo";
 import { MODO_CRONOMETRO } from "../../consts";
 
 export default function Cronometro({ modoCronometro, setModoCronometro }) {
+  const botoesModos = [
+    { modo: MODO_CRONOMETRO.FOCO, texto: "Foco" },
+    { modo: MODO_CRONOMETRO.DESCANSO_CURTO, texto: "Descanso curto" },
+    { modo: MODO_CRONOMETRO.DESCANSO_LONGO, texto: "Descanso longo" },
+  ];
+
   return (
     <div className={styles["cronometer"]}>
       <ul className={styles["cronometer-modes"]}>
-        <li>
-          <BotaoModo
-            modoBotao={MODO_CRONOMETRO.FOCO}
-            modoCronometro={modoCronometro}
-            setModoCronometro={setModoCronometro}
-          >
-            Foco
-          </BotaoModo>
-        </li>
-
-        <li>
-          <BotaoModo
-            modoBotao={MODO_CRONOMETRO.DESCANSO_CURTO}
-            modoCronometro={modoCronometro}
-            setModoCronometro={setModoCronometro}
-          >
-            Descanso curto
-          </BotaoModo>
-        </li>
-
-        <li>
-          <BotaoModo
-            modoBotao={MODO_CRONOMETRO.DESCANSO_LONGO}
-            modoCronometro={modoCronometro}
-            setModoCronometro={setModoCronometro}
-          >
-            Descanso longo
-          </BotaoModo>
-        </li>
+        {botoesModos.map((botao) => (
+          <li key={botao.modo}>
+            <BotaoModo
+              modoBotao={botao.modo}
+              modoCronometro={modoCronometro}
+              setModoCronometro={setModoCronometro}
+            >
+              {botao.texto}
+            </BotaoModo>
+            ;
+          </li>
+        ))}
       </ul>
 
       <div id="timer" className={styles["cronometer-timer"]}></div>

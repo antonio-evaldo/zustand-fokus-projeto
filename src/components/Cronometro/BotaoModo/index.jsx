@@ -1,12 +1,10 @@
-import { useState } from "react";
 import styles from "./styles.module.css";
 
 export default function BotaoModo({ children, modoBotao, modoCronometro, setModoCronometro }) {
-  const [ativo, setAtivo] = useState(modoCronometro === modoBotao);
+  const ativo = modoBotao === modoCronometro;
 
   function aoClicar() {
     setModoCronometro(modoBotao);
-    // setAtivo(modoCronometro === modoBotao);
   }
 
   return (
