@@ -24,7 +24,6 @@ export default function Cronometro({ modoCronometro, setModoCronometro }) {
             >
               {botao.texto}
             </BotaoModo>
-            ;
           </li>
         ))}
       </ul>
