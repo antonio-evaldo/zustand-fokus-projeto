@@ -3,9 +3,9 @@ import styles from "./styles.module.css";
 import play_arrowImg from "/src/assets/imgs/play_arrow.png";
 
 import BotaoModo from "./BotaoModo";
-import { MODO_CRONOMETRO } from "../../consts";
+import { MODO_CRONOMETRO } from "../../store";
 
-export default function Cronometro({ modoCronometro, setModoCronometro }) {
+export default function Cronometro() {
   const botoesModos = [
     { modo: MODO_CRONOMETRO.FOCO, texto: "Foco" },
     { modo: MODO_CRONOMETRO.DESCANSO_CURTO, texto: "Descanso curto" },
@@ -17,13 +17,7 @@ export default function Cronometro({ modoCronometro, setModoCronometro }) {
       <ul className={styles["cronometer-modes"]}>
         {botoesModos.map((botao) => (
           <li key={botao.modo}>
-            <BotaoModo
-              modoBotao={botao.modo}
-              modoCronometro={modoCronometro}
-              setModoCronometro={setModoCronometro}
-            >
-              {botao.texto}
-            </BotaoModo>
+            <BotaoModo modoBotao={botao.modo}>{botao.texto}</BotaoModo>
           </li>
         ))}
       </ul>
