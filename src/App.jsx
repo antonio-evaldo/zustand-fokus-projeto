@@ -10,7 +10,7 @@ function App() {
   const modoCronometro = useCronometroStore((estado) => estado.modoCronometro);
 
   return (
-    <div className={styles[`app--${modoCronometro}`]}>
+    <div className={styles[`app--${modoCronometro.id}`]}>
       <Cabecalho />
 
       <main>

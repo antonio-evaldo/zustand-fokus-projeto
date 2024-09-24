@@ -6,10 +6,10 @@ import BotaoModo from "./BotaoModo";
 import { MODO_CRONOMETRO, useCronometroStore } from "../../store";
 
 export default function Cronometro() {
-  const botoesModos = [
-    { modo: MODO_CRONOMETRO.FOCO, texto: "Foco" },
-    { modo: MODO_CRONOMETRO.DESCANSO_CURTO, texto: "Descanso curto" },
-    { modo: MODO_CRONOMETRO.DESCANSO_LONGO, texto: "Descanso longo" },
+  const modos = [
+    MODO_CRONOMETRO.FOCO,
+    MODO_CRONOMETRO.DESCANSO_CURTO,
+    MODO_CRONOMETRO.DESCANSO_LONGO,
   ];
 
   const tempoEmSegundos = useCronometroStore((estado) => estado.tempoEmSegundos);
@@ -24,9 +24,9 @@ export default function Cronometro() {
   return (
     <div className={styles["cronometer"]}>
       <ul className={styles["cronometer-modes"]}>
-        {botoesModos.map((botao) => (
-          <li key={botao.modo}>
-            <BotaoModo modoBotao={botao.modo}>{botao.texto}</BotaoModo>
+        {modos.map((modo) => (
+          <li key={modo.id}>
+            <BotaoModo modoBotao={modo}>{modo.nome}</BotaoModo>
           </li>
         ))}
       </ul>
