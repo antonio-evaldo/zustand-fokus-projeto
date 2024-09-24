@@ -8,5 +8,19 @@ export const MODO_CRONOMETRO = {
 
 export const useCronometroStore = create((set) => ({
   modoCronometro: MODO_CRONOMETRO.FOCO,
-  defineModoCronometro: (novoModo) => set({ modoCronometro: novoModo }),
+  tempoEmSegundos: 30,
+  setModoCronometro: (novoModo) => {
+    const novoTempo = obtemNovoTempoEmSegundos(novoModo);
+
+    set({
+      modoCronometro: novoModo,
+      tempoEmSegundos: novoTempo,
+    });
+  },
 }));
+
+function obtemNovoTempoEmSegundos(novoModo) {
+  if (novoModo === MODO_CRONOMETRO.FOCO) return 30;
+  if (novoModo === MODO_CRONOMETRO.DESCANSO_CURTO) return 5;
+  if (novoModo === MODO_CRONOMETRO.DESCANSO_LONGO) return 15;
+}

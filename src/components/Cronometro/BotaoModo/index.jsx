@@ -4,12 +4,12 @@ import { useCronometroStore } from "../../../store";
 
 export default function BotaoModo({ children, modoBotao }) {
   const modoCronometro = useCronometroStore((estado) => estado.modoCronometro);
-  const defineModoCronometro = useCronometroStore((estado) => estado.defineModoCronometro);
+  const setModoCronometro = useCronometroStore((estado) => estado.setModoCronometro);
 
   const ativo = modoBotao === modoCronometro;
 
   function aoClicar() {
-    defineModoCronometro(modoBotao);
+    setModoCronometro(modoBotao);
   }
 
   return (
