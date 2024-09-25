@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import audioPlaySom from "/src/assets/sons/play.wav";
 import audioPauseSom from "/src/assets/sons/pause.mp3";
+import audioTempoFinalizadoSom from "/src/assets/sons/beep.mp3";
 import play_arrowImg from "/src/assets/imgs/play_arrow.png";
 import pauseImg from "/src/assets/imgs/pause.png";
 
@@ -20,12 +21,14 @@ export default function Cronometro() {
 
   const audioPlay = new Audio(audioPlaySom);
   const audioPause = new Audio(audioPauseSom);
+  const audioTempoFinalizado = new Audio(audioTempoFinalizadoSom);
 
   function iniciarOuPausar() {
     if (!intervaloId) {
       iniciarCronometro();
     } else {
       pausarCronometro();
+      audioPause.play();
     }
   }
 
@@ -44,13 +47,12 @@ export default function Cronometro() {
     } else {
       pausarCronometro();
       alert("Tempo finalizado!");
+      audioTempoFinalizado.play();
       redefinirTempo();
     }
   }
 
   function pausarCronometro() {
-    audioPause.play();
-
     // como pausarCronometro() é chamado pelo setInterval(), é necessário usar .getState() para obter o valor atualizado do estado. Usar intervaloId diretamente não funcionaria.
     const intervaloId = useCronometroStore.getState().intervaloId;
     clearInterval(intervaloId);
