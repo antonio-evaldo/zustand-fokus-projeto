@@ -1,5 +1,6 @@
 import styles from "./styles.module.css";
 import play_arrowImg from "/src/assets/imgs/play_arrow.png";
+import pauseImg from "/src/assets/imgs/pause.png";
 
 import { useCronometroStore } from "../../store";
 
@@ -10,6 +11,10 @@ export default function Cronometro() {
   const decrementarTempo = useCronometroStore((estado) => estado.decrementarTempo);
   const intervaloId = useCronometroStore((estado) => estado.intervaloId);
   const setIntervaloId = useCronometroStore((estado) => estado.setIntervaloId);
+  const redefinirTempo = useCronometroStore((estado) => estado.redefinirTempo);
+
+  const textoIniciarOuPausar = intervaloId ? "Pausar" : "Começar";
+  const iconeIniciarOuPausar = intervaloId ? pauseImg : play_arrowImg;
 
   function iniciarOuPausar() {
     if (!intervaloId) {
@@ -32,6 +37,7 @@ export default function Cronometro() {
     } else {
       pausarCronometro();
       alert("Tempo finalizado!");
+      redefinirTempo();
     }
   }
 
@@ -39,6 +45,7 @@ export default function Cronometro() {
     // como pausarCronometro() é chamado pelo setInterval(), é necessário usar .getState() para obter o valor atualizado do estado. Usar intervaloId diretamente não funcionaria.
     const intervaloId = useCronometroStore.getState().intervaloId;
     clearInterval(intervaloId);
+    setIntervaloId(null);
   }
 
   return (
@@ -59,8 +66,12 @@ export default function Cronometro() {
 
       <div className={styles["cronometer__primary-button-wrapper"]}>
         <button onClick={iniciarOuPausar} className={styles["cronometer__primary-button"]}>
-          <img className={styles["cronometer__primary-button-icon"]} src={play_arrowImg} alt="" />
-          <span>Começar</span>
+          <img
+            className={styles["cronometer__primary-button-icon"]}
+            src={iconeIniciarOuPausar}
+            alt=""
+          />
+          <span>{textoIniciarOuPausar}</span>
         </button>
       </div>
     </div>
