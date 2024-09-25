@@ -30,4 +30,10 @@ export const useCronometroStore = create((set) => ({
       tempoEmSegundos: novoModo.tempoInicialEmSegundos,
     });
   },
+  decrementarTempo: () => {
+    set((estado) => ({ tempoEmSegundos: estado.tempoEmSegundos - 1 }));
+  },
+
+  intervaloId: null,
+  setIntervaloId: (novoId) => set({ intervaloId: novoId }),
 }));
