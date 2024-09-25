@@ -1,21 +1,15 @@
 import styles from "./styles.module.css";
-
 import play_arrowImg from "/src/assets/imgs/play_arrow.png";
 
 import { useCronometroStore } from "../../store";
+
 import BotoesModos from "./BotoesModos";
+import Timer from "./Timer";
 
 export default function Cronometro() {
-  const tempoEmSegundos = useCronometroStore((estado) => estado.tempoEmSegundos);
   const decrementarTempo = useCronometroStore((estado) => estado.decrementarTempo);
   const intervaloId = useCronometroStore((estado) => estado.intervaloId);
   const setIntervaloId = useCronometroStore((estado) => estado.setIntervaloId);
-
-  const tempo = new Date(tempoEmSegundos * 1000);
-  const tempoFormatado = tempo.toLocaleTimeString("pt-BR", {
-    minute: "2-digit",
-    second: "2-digit",
-  });
 
   function iniciarOuPausar() {
     if (!intervaloId) {
@@ -51,7 +45,7 @@ export default function Cronometro() {
     <div className={styles["cronometer"]}>
       <BotoesModos />
 
-      <div className={styles["cronometer-timer"]}>{tempoFormatado}</div>
+      <Timer />
 
       <label className={styles["toggle"]}>
         <input className={styles["toggle__checkbox"]} type="checkbox" id="alternar-musica" />
