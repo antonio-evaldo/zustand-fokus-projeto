@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-import { useCronometroStore } from "../../../store";
+import { useCronometroStore } from "../../../../store";
 
 export default function BotaoModo({ children, modoBotao }) {
   const modoCronometro = useCronometroStore((estado) => estado.modoCronometro);

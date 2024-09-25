@@ -2,16 +2,10 @@ import styles from "./styles.module.css";
 
 import play_arrowImg from "/src/assets/imgs/play_arrow.png";
 
-import BotaoModo from "./BotaoModo";
-import { MODO_CRONOMETRO, useCronometroStore } from "../../store";
+import { useCronometroStore } from "../../store";
+import BotoesModos from "./BotoesModos";
 
 export default function Cronometro() {
-  const modos = [
-    MODO_CRONOMETRO.FOCO,
-    MODO_CRONOMETRO.DESCANSO_CURTO,
-    MODO_CRONOMETRO.DESCANSO_LONGO,
-  ];
-
   const tempoEmSegundos = useCronometroStore((estado) => estado.tempoEmSegundos);
 
   const tempo = new Date(tempoEmSegundos * 1000);
@@ -23,13 +17,7 @@ export default function Cronometro() {
 
   return (
     <div className={styles["cronometer"]}>
-      <ul className={styles["cronometer-modes"]}>
-        {modos.map((modo) => (
-          <li key={modo.id}>
-            <BotaoModo modoBotao={modo}>{modo.nome}</BotaoModo>
-          </li>
-        ))}
-      </ul>
+      <BotoesModos />
 
       <div id="timer" className={styles["cronometer-timer"]}>
         {tempoFormatado}

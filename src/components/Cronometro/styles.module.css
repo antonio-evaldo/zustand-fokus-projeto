@@ -13,16 +13,6 @@
   align-items: center;
 }
 
-.cronometer-modes {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-}
-
 .cronometer-timer {
   color: var(--color-secondary);
   text-align: center;
