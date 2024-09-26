@@ -9,6 +9,7 @@ import { useCronometroStore } from "../../store";
 
 import BotoesModos from "./BotoesModos";
 import Timer from "./Timer";
+import SwitchMusica from "./SwitchMusica";
 
 export default function Cronometro() {
   const decrementarTempo = useCronometroStore((estado) => estado.decrementarTempo);
@@ -65,15 +66,7 @@ export default function Cronometro() {
 
       <Timer />
 
-      <label className={styles["toggle"]}>
-        <input className={styles["toggle__checkbox"]} type="checkbox" id="alternar-musica" />
-
-        <div className={styles["toggle__switch"]}></div>
-
-        <span className={styles["toggle__span"]} htmlFor="alternar-musica">
-          Música
-        </span>
-      </label>
+      <SwitchMusica />
 
       <div className={styles["cronometer__primary-button-wrapper"]}>
         <button onClick={iniciarOuPausar} className={styles["cronometer__primary-button"]}>
