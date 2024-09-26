@@ -1,7 +1,6 @@
 import styles from "./styles.module.css";
 import audioPlaySom from "/src/assets/sons/play.wav";
 import audioPauseSom from "/src/assets/sons/pause.mp3";
-import audioTempoFinalizadoSom from "/src/assets/sons/beep.mp3";
 import play_arrowImg from "/src/assets/imgs/play_arrow.png";
 import pauseImg from "/src/assets/imgs/pause.png";
 
@@ -12,52 +11,24 @@ import Timer from "./Timer";
 import SwitchMusica from "./SwitchMusica";
 
 export default function Cronometro() {
-  const decrementarTempo = useCronometroStore((estado) => estado.decrementarTempo);
   const intervaloId = useCronometroStore((estado) => estado.intervaloId);
-  const setIntervaloId = useCronometroStore((estado) => estado.setIntervaloId);
-  const redefinirTempo = useCronometroStore((estado) => estado.redefinirTempo);
+  const iniciarCronometro = useCronometroStore((estado) => estado.iniciarCronometro);
+  const pausarCronometro = useCronometroStore((estado) => estado.pausarCronometro);
 
   const textoIniciarOuPausar = intervaloId ? "Pausar" : "Começar";
   const iconeIniciarOuPausar = intervaloId ? pauseImg : play_arrowImg;
 
   const audioPlay = new Audio(audioPlaySom);
   const audioPause = new Audio(audioPauseSom);
-  const audioTempoFinalizado = new Audio(audioTempoFinalizadoSom);
 
   function iniciarOuPausar() {
     if (!intervaloId) {
+      audioPlay.play();
       iniciarCronometro();
     } else {
-      pausarCronometro();
       audioPause.play();
-    }
-  }
-
-  function iniciarCronometro() {
-    audioPlay.play();
-
-    const novoId = setInterval(computarContagemRegressiva, 1000);
-    setIntervaloId(novoId);
-  }
-
-  function computarContagemRegressiva() {
-    const tempoAtual = useCronometroStore.getState().tempoEmSegundos;
-
-    if (tempoAtual > 0) {
-      decrementarTempo();
-    } else {
       pausarCronometro();
-      alert("Tempo finalizado!");
-      audioTempoFinalizado.play();
-      redefinirTempo();
     }
-  }
-
-  function pausarCronometro() {
-    // como pausarCronometro() é chamado pelo setInterval(), é necessário usar .getState() para obter o valor atualizado do estado. Usar intervaloId diretamente não funcionaria.
-    const intervaloId = useCronometroStore.getState().intervaloId;
-    clearInterval(intervaloId);
-    setIntervaloId(null);
   }
 
   return (

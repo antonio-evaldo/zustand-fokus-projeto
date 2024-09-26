@@ -1,4 +1,7 @@
 import { create } from "zustand";
+import audioTempoFinalizadoSom from "/src/assets/sons/beep.mp3";
+
+const audioTempoFinalizado = new Audio(audioTempoFinalizadoSom);
 
 export const MODO_CRONOMETRO = {
   FOCO: {
@@ -33,12 +36,41 @@ export const useCronometroStore = create((set) => ({
     });
   },
 
-  decrementarTempo: () => {
-    set((estado) => ({ tempoEmSegundos: estado.tempoEmSegundos - 1 }));
-  },
-  redefinirTempo: () => {
-    set((estado) => ({ tempoEmSegundos: estado.modoCronometro.tempoInicialEmSegundos }));
+  iniciarCronometro: () => {
+    const novoId = setInterval(computarContagemRegressiva, 1000);
+
+    set({ intervaloId: novoId });
   },
 
-  setIntervaloId: (novoId) => set({ intervaloId: novoId }),
+  pausarCronometro: () => {
+    set((estado) => {
+      clearInterval(estado.intervaloId);
+
+      return { intervaloId: null };
+    });
+  },
 }));
+
+function computarContagemRegressiva() {
+  const tempoAtual = useCronometroStore.getState().tempoEmSegundos;
+  const pausarCronometro = useCronometroStore.getState().pausarCronometro;
+
+  if (tempoAtual > 0) {
+    decrementarTempo();
+  } else {
+    pausarCronometro();
+    alert("Tempo finalizado!");
+    audioTempoFinalizado.play();
+    redefinirTempo();
+  }
+}
+
+function decrementarTempo() {
+  useCronometroStore.setState((estado) => ({ tempoEmSegundos: estado.tempoEmSegundos - 1 }));
+}
+
+function redefinirTempo() {
+  useCronometroStore.setState((estado) => ({
+    tempoEmSegundos: estado.modoCronometro.tempoInicialEmSegundos,
+  }));
+}
