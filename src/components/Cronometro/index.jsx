@@ -1,46 +1,31 @@
 import styles from "./styles.module.css";
+
 import play_arrowImg from "/src/assets/imgs/play_arrow.png";
 
-export default function Cronometro() {
+import BotaoModo from "./BotaoModo";
+import { MODO_CRONOMETRO } from "../../consts";
+
+export default function Cronometro({ modoCronometro, setModoCronometro }) {
+  const botoesModos = [
+    { modo: MODO_CRONOMETRO.FOCO, texto: "Foco" },
+    { modo: MODO_CRONOMETRO.DESCANSO_CURTO, texto: "Descanso curto" },
+    { modo: MODO_CRONOMETRO.DESCANSO_LONGO, texto: "Descanso longo" },
+  ];
+
   return (
     <div className={styles["cronometer"]}>
       <ul className={styles["cronometer-modes"]}>
-        <li>
-          <button
-            data-contexto="foco"
-            className={`
-              ${styles["cronometer-modes__button"]}
-              ${styles["cronometer-modes__button--foco"]}
-              ${styles["cronometer-modes__button--active"]}
-            `}
-          >
-            Foco
-          </button>
-        </li>
-
-        <li>
-          <button
-            data-contexto="short"
-            className={`
-              ${styles["cronometer-modes__button"]}
-              ${styles["cronometer-modes__button--curto"]}
-            `}
-          >
-            Descanso curto
-          </button>
-        </li>
-
-        <li>
-          <button
-            data-contexto="long"
-            className={`
-              ${styles["cronometer-modes__button"]}
-              ${styles["cronometer-modes__button--longo"]}
-            `}
-          >
-            Descanso longo
-          </button>
-        </li>
+        {botoesModos.map((botao) => (
+          <li key={botao.modo}>
+            <BotaoModo
+              modoBotao={botao.modo}
+              modoCronometro={modoCronometro}
+              setModoCronometro={setModoCronometro}
+            >
+              {botao.texto}
+            </BotaoModo>
+          </li>
+        ))}
       </ul>
 
       <div id="timer" className={styles["cronometer-timer"]}></div>
