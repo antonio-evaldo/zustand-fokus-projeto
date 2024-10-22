@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-import { MODO_CRONOMETRO } from "../../../store";
+import { MODO_CRONOMETRO } from "../../../consts";
 import BotaoModo from "./BotaoModo";
 
 export default function BotoesModos() {

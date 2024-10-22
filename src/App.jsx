@@ -1,13 +1,14 @@
+import { useState } from "react";
 import styles from "./App.module.css";
 
 import Cabecalho from "./components/Cabecalho";
 import Cronometro from "./components/Cronometro";
 import ListaDeTarefas from "./components/ListaDeTarefas";
 import Rodape from "./components/Rodape";
-import { useCronometroStore } from "./store";
+import { MODO_CRONOMETRO } from "./consts";
 
 function App() {
-  const modoCronometro = useCronometroStore((estado) => estado.modoCronometro);
+  const [modoCronometro] = useState(MODO_CRONOMETRO.FOCO);
 
   return (
     <div className={styles[`app--${modoCronometro.id}`]}>

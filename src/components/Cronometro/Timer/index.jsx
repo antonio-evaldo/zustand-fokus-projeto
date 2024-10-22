@@ -1,8 +1,7 @@
 import styles from "./styles.module.css";
-import { useCronometroStore } from "../../../store";
 
 export default function Timer() {
-  const tempoEmSegundos = useCronometroStore((estado) => estado.tempoEmSegundos);
+  const tempoEmSegundos = 30;
 
   const tempo = new Date(tempoEmSegundos * 1000);
   const tempoFormatado = tempo.toLocaleTimeString("pt-BR", {
